@@ -1,14 +1,6 @@
 <form action=""  enctype="multipart/form-data" method="post">
 {% csrf_token %}
 
-<div class="form-group ">
-    <label for="siete">Unidad</label>
-    <select class="form-control" id="siete" name="siete">
-    {% for uno  in uno %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
-       {% endfor %}
-    </select>
-  </div>
   <div class="row">
    <div class="form-group col-md-3">
   <label for="descripc" class="form-label">Descripcion del Equipo</label>

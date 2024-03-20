@@ -1,10 +1,72 @@
 <form action=""  enctype="multipart/form-data" method="post">
   {% csrf_token %}
 
+  <div class="form-group ">
+    <label for="vhf">RED_VHF</label>
+    <select class="form-control" id="vhf" name="vhf">
+    {% for uno  in vhf %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="cripto">CRIPTOGRAFIA</label>
+    <select class="form-control" id="cripto" name="cripto">
+    {% for uno  in cripto %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="hf">RED_HF</label>
+    <select class="form-control" id="hf" name="hf">
+    {% for uno  in hf %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="mensaje">MENSAJERO</label>
+    <select class="form-control" id="mensaje" name="mensaje">
+    {% for uno  in mensaje %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="mtrr">MTRR</label>
+    <select class="form-control" id="mtrr" name="mtrr">
+    {% for uno  in mtrr %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="morse">CODIGO MORSE</label>
+    <select class="form-control" id="morse" name="morse">
+    {% for uno  in morse %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group ">
+    <label for="radio">RADIOAFICIONADOS</label>
+    <select class="form-control" id="radio" name="radio">
+    {% for uno  in radio %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+       {% endfor %}
+    </select>
+  </div>
 
   <div class="form-group">
-    <label for="unidad" class="form-label">Unidad</label>
-    <input type="text" class="form-control" name="unidad" id="unidad"  placeholder="Unidad">
+    <label for="nombre" class="form-label">Unidad</label>
+    <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Unidad">
   </div>
  
 

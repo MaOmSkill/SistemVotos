@@ -1,14 +1,7 @@
 <form action=""  enctype="multipart/form-data" method="post">
 {% csrf_token %}
 
-<div class="form-group ">
-    <label for="seis">Unidad</label>
-    <select class="form-control" id="seis" name="seis">
-    {% for uno  in uno %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
-       {% endfor %}
-    </select>
-  </div>
+
 <!-- INICIO item de la cancha numero 6 -->
  <div class="row">
 

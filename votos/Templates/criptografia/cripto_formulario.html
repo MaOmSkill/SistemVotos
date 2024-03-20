@@ -2,14 +2,8 @@
 {% csrf_token %}
 
 <!-- INICIO  item de la cancha numero 2 -->
-<div class="form-group ">
-    <label for="dos">Unidad</label>
-    <select class="form-control" id="dos" name="dos">
-    {% for uno  in uno %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
-       {% endfor %}
-    </select>
-  </div>
+
+
   <div class=" row ">
 
   <div class="form-group col-md-4">

@@ -1,17 +1,7 @@
 <form action=""  enctype="multipart/form-data" method="post">
 {% csrf_token %}
 
-
 <!-- Inicio item de la cancha numero 1 -->
-
-<div class="form-group ">
-    <label for="uno">Unidad</label>
-    <select class="form-control" id="uno" name="uno">
-   
-      <option value="{{resultado.id}}">{{resultado.id}} - {{resultado.unidad}} </option>
-     
-    </select>
-  </div>
   <div class="row">
    <div class="form-group col-md-3"> 
     <label for="ensamblaje" class="form-label">Ensamblaje del Equipo</label>

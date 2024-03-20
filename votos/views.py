@@ -6,6 +6,14 @@ from .forms import ResultadosForm, Red_VhForm, CriptografiaForm, Red_HForm, Mens
 
 def principal(request):
     resultados = Resultados.objects.all()
+    cripto = Criptografia.objects.all()
+    vhf = Red_VHF.objects.all()
+    hf = Red_HF.objects.all()
+    mensaje = Mensajero.objects.all()
+    mtrr = Mtrr.objects.all()
+    morse = Codigo_Morse.objects.all()
+    radio = Radioaficionados.objects.all()
+    
     formularios = {
         'resultados': ResultadosForm(request.POST or None),
         'red_vh': Red_VhForm(request.POST or None),
@@ -24,15 +32,12 @@ def principal(request):
         return redirect('principal')
     
    
-    context = {'formularios': formularios, 'resultados':resultados}
+    context = {'formularios': formularios, 'resultados':resultados, 'cripto':cripto , 'vhf':vhf, 'hf':hf, 'mensaje':mensaje, 
+               'mtrr':mtrr, 'morse':morse, 'radio':radio}
     return render(request, 'vistas/index.html', context)
 
 
-def crear(request, id):
-    resultado = Resultados.objects.get(id=id)
-    uno = Red_VHF.objects.filter(id=id)
-    context = { 'resultado':resultado, 'uno':uno}
-    return render(request, 'vistas/index.html', context)
+
     
     
     

@@ -3,16 +3,7 @@
 
 
 <!-- INICIO item de la cancha numero 5 -->
-<div class="form-group ">
-    <label for="cinco">Unidad</label>
-    <select class="form-control" id="cinco" name="cinco">
-    {% for uno  in uno %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
-       {% endfor %}
-    </select>
-  </div>
-
- <div class="row form-group">
+<div class="row">
     
   <div class="form-group col-md-4">
     <label for="explmis" class="form-label">Explicación de La Misión</label>
@@ -99,7 +90,8 @@
     <label for="adopdisp" class="form-label">Adopción del Dispositivo</label>
     <input type="number" class="form-control" name="adopdisp" id="adopdisp"  step="000.0001" min="0" max="100" placeholder="Adopción del Dispositivo">
   </div>
-  </div>
+
+</div>
 
 <!-- Final item de la cancha numero 5 -->
 

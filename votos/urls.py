@@ -5,8 +5,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
   path("", views.principal, name="principal"),
-  path("vistas/crear/<int:id>", views.crear, name="crear"),
- 
    
    
     
