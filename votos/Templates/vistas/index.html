@@ -12,15 +12,8 @@
       <div class="col-sm-8">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item">
-            <a
-              href="#"
-              class="btn btn-dark float-left"
-              data-toggle="modal"
-              data-target="#unidad"
-            >
-              <i class="fas fa-plus-square"></i>
-              Evalución
-            </a>
+            <a href="#" class="btn btn-dark float-left" data-toggle="modal" data-target="#unidad">
+            <i class="fas fa-plus-square"></i>  Evalución </a>
           </li>
           <li class="breadcrumb-item">
             <a href="#" data-toggle="modal" data-target="#vhf">Red VHF</a>
@@ -53,11 +46,7 @@
           </li>
 
           <li class="breadcrumb-item">
-       
            <a href="">crear</a>
-     
-         
-        
           </li>
         </ol>
       </div>
@@ -93,10 +82,10 @@
           </tr>
         </thead>
         <tbody>
-        {% for uno in uno %}
+        {% for uno in resultados %}
           <tr>
           <td>{{uno.id}}</td>
-          <td>{{uno.resultados_unidad}}</td>
+          <td>{{uno.unidad}}</td>
           </tr>
         {% endfor %}
         </tbody>

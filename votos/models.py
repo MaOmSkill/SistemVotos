@@ -1,7 +1,4 @@
 from django.db import models
-from decimal import Decimal
-
-
 
 class Resultados(models.Model):
     unidad = models.CharField(max_length=300, verbose_name='Nombre de la Unidad')
@@ -29,7 +26,7 @@ class Red_VHF(models.Model):
     suma1 =  models.IntegerField(default=0)
     divido = models.DecimalField(max_digits=5, decimal_places=2)
     resultado = models.DecimalField(max_digits=5, decimal_places=2)
-    uno = models.ManyToManyField(Resultados)
+    uno = models.ForeignKey(Resultados, on_delete=models.CASCADE )
     
     def save(self, *args, **kwargs):
         self.suma1 = self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.t_equipo + self.potencia_s 
@@ -50,7 +47,7 @@ class Criptografia(models.Model):
     suma2 =  models.IntegerField(default=0)
     divido = models.DecimalField(max_digits=10, decimal_places=3)
     resultado = models.DecimalField(max_digits=10, decimal_places=3)
-    dos = models.ForeignKey(Resultados, on_delete=models.CASCADE, null=True)
+    dos = models.ForeignKey(Resultados, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.suma2 = self.principios + self.metodos + self.medidas + self.cifrado + self.decifrado + self.tiempo 
@@ -82,11 +79,11 @@ class Red_HF(models.Model):
     suma3 =  models.IntegerField(default=0)
     divido = models.DecimalField(max_digits=10, decimal_places=3)
     resultado = models.DecimalField(max_digits=10, decimal_places=3)
-    tres = models.ForeignKey(Resultados, on_delete=models.CASCADE, null=True)
+    tres = models.ForeignKey(Resultados, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.suma3 = self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.t_equipo + self.potencia_s + self.alcance + self.modulacion + self.accesorio + self.config + self.expediente + self.calculo_a + self.expedienteOT + self.instalacion + self.indicativos + self.autenticacion + self.prearreglado + self.micro + self.tiempo
-        self.divido =  self.suma / 19
+        self.divido =  self.suma3 / 19
         self.resultado = self.divido * 20
         super(Red_HF, self).save(*args, **kwargs)
     
@@ -119,7 +116,7 @@ class Mensajero(models.Model):
         self.suma4 = self.rmsjcf + self.smsjero + self.smsje + self.imsjero + self.vtamjs + self.tpomsj 
         + self.entsalid + self.celibro + self.clastrans + self.nofiexp + self.fcha + self.pra 
         + self.dcofic + self.hra+ self.fgrado + self.pfsica + self.tepleado
-        self.divido =  self.suma / 18
+        self.divido =  self.suma4 / 18
         self.resultado = self.divido * 20
         super(Mensajero, self).save(*args, **kwargs)
     
@@ -145,12 +142,12 @@ class Mtrr(models.Model):
     suma5 =  models.IntegerField(default=0)
     divido = models.DecimalField(max_digits=5, decimal_places=2)
     resultado = models.DecimalField(max_digits=5, decimal_places=2)
-    cinco = models.ForeignKey(Resultados, on_delete=models.CASCADE, null=True)
+    cinco = models.ForeignKey(Resultados, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.suma5 = self.explmis + self.orgunid + self.elinea + self.encolum +self.dprfr+ self.segdesp + self.pcolm + self.laperfue + self.laperfue + self.sectiro
         + self.sectvig + self.usoarms + self.detinfor + self.centequi + self.observa+ self.contequipo + self.Fugmovi + self.adopdisp 
-        self.divido =  self.suma / 17
+        self.divido =  self.suma5 / 17
         self.resultado = self.divido * 20
         super(Mtrr, self).save(*args, **kwargs)
     
@@ -166,11 +163,11 @@ class Codigo_Morse(models.Model):
     suma6      = models.IntegerField(default=0)
     divido    = models.DecimalField(max_digits=5, decimal_places=2)
     resultado = models.DecimalField(max_digits=5, decimal_places=2)
-    seis = models.ForeignKey(Resultados, on_delete=models.CASCADE, null=True)
+    seis = models.ForeignKey(Resultados, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.suma6 = self.codinter + self.qsc + self.usocorr + self.decifrad + self.timpempl 
-        self.divido =  self.suma / 5
+        self.divido =  self.suma6 / 5
         self.resultado = self.divido * 20
         super(Codigo_Morse, self).save(*args, **kwargs)
     
@@ -199,14 +196,14 @@ class Radioaficionados(models.Model):
     suma7 =  models.IntegerField(default=0)
     divido = models.DecimalField(max_digits=5, decimal_places=2)
     resultado = models.DecimalField(max_digits=5, decimal_places=2)
-    siete = models.ForeignKey(Resultados, on_delete=models.CASCADE, null=True)
+    siete = models.ForeignKey(Resultados, on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
         self.suma7 = self.descripc + self.ensablajee + self.ctecnicas + self.banfrec + self.ranfrec + self.tpequip + self.ptsalid + self.tpmodul + self.alcanceq 
         + self.configequ + self.elabexp + self.calcant + self.elabcion + self.instaena + self.proctel + self.empleind + self.autenradi + self.empleados 
         + self.emplefic + self.tmplado 
         
-        self.divido =  self.suma / 20
+        self.divido =  self.suma7 / 20
         self.resultado = self.divido * 20
         super(Radioaficionados, self).save(*args, **kwargs)
     
