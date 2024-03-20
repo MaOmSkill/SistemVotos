@@ -17,7 +17,6 @@ def principal(request):
     radio = Radioaficionados.objects.all()
     
     total = Resultados.objects.values('total').annotate(conteo=Count('total')).order_by('total')
-    
 
     formularios = {
         'resultados': ResultadosForm(request.POST or None),

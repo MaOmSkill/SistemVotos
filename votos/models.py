@@ -178,5 +178,3 @@ class Resultados(models.Model):
     def save(self, *args, **kwargs):
         self.total = self.calculo()
         super(Resultados, self).save(*args, **kwargs)
-
-    

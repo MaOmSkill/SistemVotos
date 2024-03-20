@@ -82,7 +82,32 @@
           <td class="text-center">{{uno.morse.sumatoria}}% </td>
           <td class="text-center">{{uno.radio.sumatoria}}%</td>
           <td class="text-center">{{uno.total}} % </td>
-          <td class="text-center">{{uno.condicion}}</td>
+          <td>
+          {% if uno.total >= 96 %}
+              
+              Excelente
+              
+          {% elif uno.total >= 90 %}
+          
+              Muy Bueno
+            
+          {% elif uno.total >= 80 %}
+              Bueno
+                  
+          {% elif uno.total >= 70 %}
+
+                Suficiente
+                
+          {% elif uno.total >= 1 %}
+
+                Deficiente
+         
+            {% else %}
+
+                No Cumple
+
+            {% endif %}
+            </td>
           </tr>
         {% endfor %}
         </tbody>
