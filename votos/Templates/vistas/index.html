@@ -53,36 +53,36 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-striped-columns table-hover align-middle">
-        <thead class="table-light">
+      <table id="example1" class="table table-bordered table-striped  table-hover-blue">
+        <thead class="table-dark">
           <tr>
-            <th>N°</th>
-            <th>Unidad</th>
-            <th>Red VHF</th>
-            <th>Criptografía</th>
-            <th>Red HF</th>
-            <th>Mensajero</th>
-            <th>MTRR</th>
-            <th>Código Morse</th>
-            <th>RadioAficcionados</th>
-            <th>Puntaje</th>
-            <th>Condición</th>
+            <th class="text-center">N°</th>
+            <th class="text-center">Unidad</th>
+            <th class="text-center">Red VHF</th>
+            <th class="text-center">Criptografía</th>
+            <th class="text-center">Red HF</th>
+            <th class="text-center">Mensajero</th>
+            <th class="text-center">MTRR</th>
+            <th class="text-center">Código Morse</th>
+            <th class="text-center">RadioAficcionados</th>
+            <th class="text-center">Puntaje</th>
+            <th class="text-center">Condición</th>
           </tr>
         </thead>
         <tbody>
         {% for uno in resultados %}
           <tr>
-          <td>{{uno.id}}</td>
-          <td>{{uno.nombre}}</td>
-          <td>{{uno.vhf.sumatoria}} %</td>
-          <td>{{uno.cripto.sumatoria}} % </td>
-          <td>{{uno.hf.sumatoria}} % </td>
-          <td>{{uno.mensaje.sumatoria}} %</td>
-          <td>{{uno.mtrr.sumatoria}} % </td>
-          <td>{{uno.morse.sumatoria}} % </td>
-          <td>{{uno.radio.sumatoria}} %</td>
-          <td>{{uno.total}} % </td>
-          <td></td>
+          <td class="text-center">{{uno.id}}</td>
+          <td class="text-center">{{uno.nombre}}</td>
+          <td class="text-center">{{uno.vhf.sumatoria}}%</td>
+          <td class="text-center">{{uno.cripto.sumatoria}}% </td>
+          <td class="text-center">{{uno.hf.sumatoria}}% </td>
+          <td class="text-center">{{uno.mensaje.sumatoria}}%</td>
+          <td class="text-center">{{uno.mtrr.sumatoria}}% </td>
+          <td class="text-center">{{uno.morse.sumatoria}}% </td>
+          <td class="text-center">{{uno.radio.sumatoria}}%</td>
+          <td class="text-center">{{uno.total}} % </td>
+          <td class="text-center">{{uno.condicion}} % </td>
           </tr>
         {% endfor %}
         </tbody>

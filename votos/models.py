@@ -1,6 +1,7 @@
 from django.db import models
+from django.db.models import Case, CharField, IntegerField, Value, When
 
-
+   
 class Red_VHF(models.Model):
     ensamblaje = models.IntegerField(default=0)
     caracter = models.IntegerField(default=0)
@@ -165,12 +166,17 @@ class Resultados(models.Model):
     mtrr = models.ForeignKey(Mtrr, on_delete=models.CASCADE)
     morse = models.ForeignKey(Codigo_Morse, on_delete=models.CASCADE)
     radio = models.ForeignKey(Radioaficionados, on_delete=models.CASCADE)
-    
-    def total(self):
-        return round((self.vhf.sumatoria() + self.cripto.sumatoria() 
+    total = models.DecimalField(max_digits=5, decimal_places=2)
+
+   
+    def calculo(self):
+        return round(( self.vhf.sumatoria() + self.cripto.sumatoria() 
                 + self.hf.sumatoria() + self.mensaje.sumatoria() 
                 + self.mtrr.sumatoria() + self.morse.sumatoria() 
                 + self.radio.sumatoria()), 2)
+        
+    def save(self, *args, **kwargs):
+        self.total = self.calculo()
+        super(Resultados, self).save(*args, **kwargs)
+
     
-    def __str__(self):
-        return self.nombre

@@ -10,8 +10,45 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/static/plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/static/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="/static/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="/static/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/static/dist/css/adminlte.min.css">
+
+  {% block css %}
+  <style>
+    .table-hover-blue thead th:hover {
+      background-color: #007bff;
+    }
+
+    table {
+      overflow-x: auto;
+    }
+
+    table td {
+      word-wrap: break-word;
+      max-width: 100px;
+      padding: 10px;
+    }
+
+    .text-truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .table td {
+      max-width: 200px;
+      word-wrap: break-word;
+    }
+
+  </style>
+
+  {% endblock%}
 </head>
 <body class="hold-transition layout-top-nav">
 
@@ -54,8 +91,120 @@
 <script src="/static/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="/static/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- DataTables  & Plugins -->
+  <script src="/static/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="/static/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/static/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/static/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="/static/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="/static/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="/static/plugins/jszip/jszip.min.js"></script>
+  <script src="/static/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="/static/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="/static/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="/static/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="/static/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/static/dist/js/adminlte.min.js"></script>
 
+
+
+ <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": false,
+         "lengthChange": true,
+          "autoWidth": true,
+          "order":[[ 9, "desc" ]],
+        // "buttons": ["excel", "pdf"],
+        language: {
+          "pageLength": "",
+          "decimal": "",
+          "emptyTable": "No hay datos",
+          "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+          "infoEmpty": "Mostrando 0 a 0 de 0 Registros",
+          "infoFiltered": "(Filtro de _MAX_ total Registros)",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Mostrar _MENU_ Registros",
+          "loadingRecords": "Cargando...",
+          "processing": "Procesando...",
+          "search": "Buscar:",
+          "zeroRecords": "No se encontraron coincidencias",
+          "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Próximo",
+            "previous": "Anterior",
+          },
+          "aria": {
+            "sortAscending": ": Activar orden de columna ascendente",
+            "sortDescending": ": Activar orden de columna desendente",
+          }
+        }
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "info": true,
+        "autoWidth": true,
+        "responsive": false,
+        language: {
+          "pageLength": "",
+          "decimal": "",
+          "emptyTable": "No hay datos",
+          "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+          "infoEmpty": "Mostrando 0 a 0 de 0 Registros",
+          "infoFiltered": "(Filtro de _MAX_ total Registros)",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Mostrar _MENU_ Registros",
+          "loadingRecords": "Cargando...",
+          "processing": "Procesando...",
+          "search": "Buscar:",
+          "zeroRecords": "No se encontraron coincidencias",
+          "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Próximo",
+            "previous": "Anterior",
+          },
+          "aria": {
+            "sortAscending": ": Activar orden de columna ascendente",
+            "sortDescending": ": Activar orden de columna desendente",
+          }
+        }
+
+      }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    });
+  </script>
+
+
+ {% if messages %}
+  {% for message in messages %}
+  <script>
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "{{ message.tags }}",
+      title: "{{ message }}"
+    });
+  </script>
+  {% endfor %}
+  {% endif %}
 </body>
 </html>
