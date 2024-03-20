@@ -23,11 +23,11 @@ class Red_VHF(models.Model):
     tiempo = models.IntegerField(default=0)
     
     def sumatoria(self):
-        return (self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.t_equipo + self.potencia_s + self.alcance 
+        return round((self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.t_equipo + self.potencia_s + self.alcance 
                 + self.modulacion + self.accesorio + self.config + self.expediente + self.calculo_a + self.instalacion + self. conectividad 
-                + self.indicativos + self.autenticacion + self.prearreglado + self.micro + self.tiempo)
+                + self.indicativos + self.autenticacion + self.prearreglado + self.micro + self.tiempo) / 19 * 20 / 100, 2)
+    
         
-
 class Criptografia(models.Model):
     principios = models.IntegerField(default=0)
     metodos = models.IntegerField(default=0)
@@ -37,8 +37,7 @@ class Criptografia(models.Model):
     tiempo = models.IntegerField(default=0)
     
     def sumatoria(self):
-        return (self.principios + self.metodos + self.medidas + self.cifrado + self.decifrado + self.tiempo)
-
+        return round((self.principios + self.metodos + self.medidas + self.cifrado + self.decifrado + self.tiempo) / 6 * 20 / 100, 2)
 
 
 class Red_HF(models.Model):
@@ -62,13 +61,11 @@ class Red_HF(models.Model):
     micro = models.IntegerField(default=0)
     tiempo = models.IntegerField(default=0)
     def sumatoria(self):
-        return (self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.tiempo + self.t_equipo + self.potencia_s 
+        return round((self.ensamblaje + self.caracter + self.b_frecuencia + self.r_frecuencia + self.tiempo + self.t_equipo + self.potencia_s 
                 + self.alcance + self.modulacion + self.accesorio + self.config + self.expediente + self.calculo_a + self.expedienteOT
-                + self.instalacion + self.indicativos + self.autenticacion + self.prearreglado + self.micro)
+                + self.instalacion + self.indicativos + self.autenticacion + self.prearreglado + self.micro) / 19 * 10 / 100,2)
 
    
-    
-
 class Mensajero(models.Model):
     rmsjcf = models.IntegerField(default=0)
     smsjero = models.IntegerField(default=0)
@@ -90,9 +87,9 @@ class Mensajero(models.Model):
     tepleado = models.IntegerField(default=0)
     
     def sumatoria(self):
-        return (self.rmsjcf + self.smsjero + self.smsje + self.imsjero + self.vtamjs + self.tpomsj + self.entsalid 
+        return round((self.rmsjcf + self.smsjero + self.smsje + self.imsjero + self.vtamjs + self.tpomsj + self.entsalid 
                 + self.celibro + self.clastrans + self.nofiexp + self.fcha + self.pra + self.dcofic + self.hra
-                + self.fgrado + self.pfsica + self.tepleado)
+                + self.fgrado + self.pfsica + self.trmsje + self.tepleado) / 18 * 10 / 100, 2)
     
     
 class Mtrr(models.Model):
@@ -115,9 +112,9 @@ class Mtrr(models.Model):
     adopdisp = models.IntegerField(default=0)
     
     def sumatoria(self):
-        return (self.explmis + self.orgunid + self.elinea + self.encolum + self.dprfr + self.segdesp 
+        return round((self.explmis + self.orgunid + self.elinea + self.encolum + self.dprfr + self.segdesp 
                 + self.pcolm + self.laperfue + self.sectiro + self.sectvig + self.usoarms + self.detinfor + self.centequi
-                + self.observa + self.contequipo + self.Fugmovi + self.adopdisp)
+                + self.observa + self.contequipo + self.Fugmovi + self.adopdisp) / 17 * 10 / 100, 2)
     
     
 class Codigo_Morse(models.Model):
@@ -128,7 +125,7 @@ class Codigo_Morse(models.Model):
     timpempl  = models.IntegerField(default=0)
     
     def sumatoria(self):
-        return (self.codinter + self.qsc + self.usocorr + self.decifrad + self.timpempl)
+        return round((self.codinter + self.qsc + self.usocorr + self.decifrad + self.timpempl) / 5 * 20 / 100, 2)
     
     
 class Radioaficionados(models.Model):
@@ -153,9 +150,9 @@ class Radioaficionados(models.Model):
     emplefic = models.IntegerField(default=0)
     tmplado = models.IntegerField(default=0)
     def sumatoria(self):
-        return (self.descripc + self.ensablajee + self.ctecnicas + self.banfrec + self.ranfrec + self.tpequip + self.ptsalid 
+        return round((self.descripc + self.ensablajee + self.ctecnicas + self.banfrec + self.ranfrec + self.tpequip + self.ptsalid 
                 + self.tpmodul + self.alcanceq + self.configequ + self.elabexp + self.calcant + self.elabcion + self.instaena
-                + self.proctel + self.empleind + self.emplefic + self.tmplado)
+                + self.proctel + self.empleind + self.autenradi + self.empleados + self.emplefic + self.tmplado) / 20 * 10 / 100, 2)
     
     
 class Resultados(models.Model):
@@ -168,6 +165,12 @@ class Resultados(models.Model):
     mtrr = models.ForeignKey(Mtrr, on_delete=models.CASCADE)
     morse = models.ForeignKey(Codigo_Morse, on_delete=models.CASCADE)
     radio = models.ForeignKey(Radioaficionados, on_delete=models.CASCADE)
+    
+    def total(self):
+        return round((self.vhf.sumatoria() + self.cripto.sumatoria() 
+                + self.hf.sumatoria() + self.mensaje.sumatoria() 
+                + self.mtrr.sumatoria() + self.morse.sumatoria() 
+                + self.radio.sumatoria()), 2)
     
     def __str__(self):
         return self.nombre

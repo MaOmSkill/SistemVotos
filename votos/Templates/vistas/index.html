@@ -65,6 +65,8 @@
             <th>MTRR</th>
             <th>Código Morse</th>
             <th>RadioAficcionados</th>
+            <th>Puntaje</th>
+            <th>Condición</th>
           </tr>
         </thead>
         <tbody>
@@ -72,13 +74,15 @@
           <tr>
           <td>{{uno.id}}</td>
           <td>{{uno.nombre}}</td>
-          <td>{{uno.vhf.sumatoria}}</td>
-          <td>{{uno.cripto.sumatoria}}</td>
-          <td>{{uno.hf.sumatoria}}</td>
-          <td>{{uno.mensaje.sumatoria}}</td>
-          <td>{{uno.mtrr.sumatoria}}</td>
-          <td>{{uno.morse.sumatoria}}</td>
-          <td>{{uno.radio.sumatoria}}</td>
+          <td>{{uno.vhf.sumatoria}} %</td>
+          <td>{{uno.cripto.sumatoria}} % </td>
+          <td>{{uno.hf.sumatoria}} % </td>
+          <td>{{uno.mensaje.sumatoria}} %</td>
+          <td>{{uno.mtrr.sumatoria}} % </td>
+          <td>{{uno.morse.sumatoria}} % </td>
+          <td>{{uno.radio.sumatoria}} %</td>
+          <td>{{uno.total}} % </td>
+          <td></td>
           </tr>
         {% endfor %}
         </tbody>
