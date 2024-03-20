@@ -1,0 +1,116 @@
+<form action=""  enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+
+<!-- Inicio item de la cancha numero 1 -->
+<div class="form-group ">
+    <label for="tres">Unidad</label>
+    <select class="form-control" id="tres" name="tres">
+    {% for uno  in uno %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
+       {% endfor %}
+    </select>
+  </div>
+  <div class="row">
+   <div class="form-group col-md-3"> 
+    <label for="ensamblaje" class="form-label">Ensamblaje del Equipo</label>
+    <input type="number" class="form-control" name="ensamblaje" id="ensamblaje"  step="000.0001" min="0" max="100" placeholder="Ensamblaje del equipo">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="caracter" class="form-label">Características Técnicas</label>
+    <input type="number" class="form-control" name="caracter" id="caracter"  step="000.0001" min="0" max="100" placeholder="Características técnicas">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="b_frecuencia" class="form-label">Banda Frecuencia</label>
+    <input type="number" class="form-control" name="b_frecuencia" id="b_frecuencia"  step="000.0001" min="0" max="100" placeholder="Banda de Frecuencia">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="r_frecuencia" class="form-label">Rango de Frecuencia</label>
+    <input type="number" class="form-control" name="r_frecuencia" id="r_frecuencia"  step="000.0001" min="0" max="100" placeholder="Rango de Frecuencia">
+  </div>
+
+   <div class="form-group col-md-3">
+    <label for="t_equipo" class="form-label">Tipo de equipo</label>
+    <input type="number" class="form-control" name="t_equipo" id="t_equipo"  step="000.0001" min="0" max="100" placeholder="Tipo de equipo">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="potencia_s" class="form-label">Potencia de Salida</label>
+    <input type="number" class="form-control" name="potencia_s" id="potencia_s"  step="000.0001" min="0" max="100" placeholder="Potencia de Salida">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="alcance" class="form-label">Alcance del Equipo</label>
+    <input type="number" class="form-control" name="alcance" id="alcance"  step="000.0001" min="0" max="100" placeholder="Alcance del Equipo">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="modulacion" class="form-label">Tipo de Modulación</label>
+    <input type="number" class="form-control" name="modulacion" id="modulacion"  step="000.0001" min="0" max="100" placeholder="Tipo de Modulación">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="accesorio" class="form-label">Descripción del Equipo</label>
+    <input type="number" class="form-control" name="accesorio" id="accesorio"  step="000.0001" min="0" max="100" placeholder="Descripción del Equipo">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="config" class="form-label">Configuración del equipo</label>
+    <input type="number" class="form-control" name="config" id="config"  step="000.0001" min="0" max="100" placeholder="Configuración del equipo">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="expediente" class="form-label">Elaboración de los expedientes</label>
+    <input type="number" class="form-control" name="expediente" id="expediente"  step="000.0001" min="0" max="100" placeholder="Elaboración de los expedientes">
+  </div>
+
+
+  <div class="form-group col-md-3">
+    <label for="calculo_a" class="form-label">Calculo de Antena</label>
+    <input type="number" class="form-control" name="calculo_a" id="calculo_a"  step="000.0001" min="0" max="100" placeholder=" de Antena">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="expedienteOT" class="form-label">Elaboración de los expedientes</label>
+    <input type="number" class="form-control" name="expedienteOT" id="expedienteOT"  step="000.0001" min="0" max="100" placeholder="Elaboración de los expedientes">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="instalacion" class="form-label">Instalación de la Antena</label>
+    <input type="number" class="form-control" name="instalacion" id="instalacion"  step="000.0001" min="0" max="100" placeholder="Instalación de la Antena">
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="indicativos" class="form-label">Empleo de los indicativos y Codigos</label>
+    <input type="number" class="form-control" name="indicativos" id="indicativos"  step="000.0001" min="0" max="100" placeholder="Empleo de los indicativos y Códigos">
+  </div>
+
+   <div class="form-group col-md-3">
+    <label for="autenticacion" class="form-label">Método de Autenticación</label>
+    <input type="number" class="form-control" name="autenticacion" id="autenticacion"  step="000.0001" min="0" max="100" placeholder="Método de Autenticación">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="prearreglado" class="form-label">Empleo de los prearreglado  </label>
+    <input type="number" class="form-control" name="prearreglado" id="prearreglado"  step="000.0001" min="0" max="100" placeholder="Empleo de los prearreglado ">
+  </div>
+
+
+   <div class="form-group col-md-4">
+    <label for="micro" class="form-label">Empleo eficiente del micro</label>
+    <input type="number" class="form-control" name="micro" id="micro"  placeholder="Empleo eficiente del micro">
+  </div>
+  
+   <div class="form-group col-md-4">
+    <label for="tiempo" class="form-label">Tiempo empleado en la estación.</label>
+    <input type="number" class="form-control" name="tiempo" id="tiempo"  placeholder="Tiempo empleado en la estación.">
+  </div>
+  </div> 
+ <!-- Final item de la cancha numero 1 -->
+
+<div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+
+</form>

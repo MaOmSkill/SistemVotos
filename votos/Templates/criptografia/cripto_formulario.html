@@ -1,0 +1,54 @@
+<form action=""  enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+<!-- INICIO  item de la cancha numero 2 -->
+<div class="form-group ">
+    <label for="dos">Unidad</label>
+    <select class="form-control" id="dos" name="dos">
+    {% for uno  in uno %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
+       {% endfor %}
+    </select>
+  </div>
+  <div class=" row ">
+
+  <div class="form-group col-md-4">
+    <label for="principios" class="form-label">Principios Basicos</label>
+    <input type="number" class="form-control" name="principios" id="principios"  step="0.00" min="0" max="100" placeholder="Principios de la Criptografia">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="metodos" class="form-label">Metodos de la Criptografia</label>
+    <input type="number" class="form-control" name="metodos" id="metodos"  step="0.00" min="0" max="100" placeholder="Metodos de la Criptografia">
+  </div>
+
+   <div class="form-group col-md-4">
+    <label for="medidas" class="form-label">Medidas de Seguridad</label>
+    <input type="number" class="form-control" name="medidas" id="medidas"  step="0.00" min="0" max="100" placeholder="Medias de la Criptografia">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="cifrado" class="form-label">Metodo del Cifrado</label>
+    <input type="number" class="form-control" name="cifrado" id="cifrado"  step="0.00" min="0" max="100" placeholder="Método de Cifrado">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="decifrado" class="form-label">Decifrado</label>
+    <input type="number" class="form-control" name="decifrado" id="decifrado"  step="0.00" min="0" max="100" placeholder="Método de Decifrado">
+  </div>
+
+   <div class="form-group col-md-4">
+    <label for="tiempo" class="form-label">Tiempo Empleado</label>
+    <input type="number" class="form-control" name="tiempo" id="tiempo"  step="0.00" min="0" max="100" placeholder="Tiempo Empleado">
+  </div>
+  </div>
+  <!-- Final item de la cancha numero 2 -->
+
+<div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+
+
+
+</form>

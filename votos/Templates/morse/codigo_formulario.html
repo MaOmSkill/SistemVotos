@@ -1,0 +1,48 @@
+<form action=""  enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+<div class="form-group ">
+    <label for="seis">Unidad</label>
+    <select class="form-control" id="seis" name="seis">
+    {% for uno  in uno %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
+       {% endfor %}
+    </select>
+  </div>
+<!-- INICIO item de la cancha numero 6 -->
+ <div class="row">
+
+  <div class="form-group col-md-4">
+  <label for="codinter" class="form-label">Que es Codigo Internacional</label>
+    <input type="number" class="form-control" name="codinter" id="codinter"  step="000.0001" min="0" max="100" placeholder="Que es Codigo Internacional">
+  </div>
+
+  <div class="form-group col-md-4">
+  <label for="qsc" class="form-label">Quienes emplean este sistema de comunicación?</label>
+    <input type="number" class="form-control" name="qsc" id="qsc"  step="000.0001" min="0" max="100" placeholder="Quienes emplean este sistema de comunicación?">
+  </div>
+
+   <div class="form-group col-md-4">
+  <label for="usocorr" class="form-label">Uso Correcto del Codigo Morse</label>
+    <input type="number" class="form-control" name="usocorr" id="usocorr"  step="000.0001" min="0" max="100" placeholder="Uso Correcto del Codigo Morse">
+  </div>
+
+  <div class="form-group col-md-4">
+  <label for="decifrad" class="form-label">Decifrado Correcto</label>
+    <input type="number" class="form-control" name="decifrad" id="decifrad"  step="000.0001" min="0" max="100" placeholder="Desifrado Correcto">
+  </div>
+
+  <div class="form-group col-md-4">
+  <label for="timpempl" class="form-label">Tiempo de Empleado en la Transcipción</label>
+    <input type="number" class="form-control" name="timpempl" id="timpempl"  step="000.0001" min="0" max="100" placeholder="Tiempo de Empleado en la Transcipción">
+  </div>
+  </div>
+
+<!-- Final item de la cancha numero 6 -->
+
+<div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+
+</form>

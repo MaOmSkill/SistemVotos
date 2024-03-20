@@ -1,0 +1,110 @@
+<form action=""  enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+
+<!-- INICIO item de la cancha numero 5 -->
+<div class="form-group ">
+    <label for="cinco">Unidad</label>
+    <select class="form-control" id="cinco" name="cinco">
+    {% for uno  in uno %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+ <div class="row form-group">
+    
+  <div class="form-group col-md-4">
+    <label for="explmis" class="form-label">Explicación de La Misión</label>
+    <input type="number" class="form-control" name="explmis" id="explmis"  step="000.0001" min="0" max="100" placeholder="Explicación de La Misión">
+  </div>
+  
+
+  <div class="form-group col-md-4">
+    <label for="orgunid" class="form-label">Organización Unidad</label>
+    <input type="number" class="form-control" name="orgunid" id="orgunid"  step="000.0001" min="0" max="100" placeholder="Organización Unidad">
+  </div>
+
+   <div class="form-group col-md-4">
+    <label for="elinea" class="form-label">En Linea</label>
+    <input type="number" class="form-control" name="elinea" id="elinea"  step="000.0001" min="0" max="100" placeholder="En Linea">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="encolum" class="form-label">En Columna</label>
+    <input type="number" class="form-control" name="encolum" id="encolum"  step="000.0001" min="0" max="100" placeholder="En Columna">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="dprfr" class="form-label">DPRFR</label>
+    <input type="number" class="form-control" name="dprfr" id="dprfr"  step="000.0001" min="0" max="100" placeholder="DPRFR">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="segdesp" class="form-label">Seguridad en Desplazamiento</label>
+    <input type="number" class="form-control" name="segdesp" id="segdesp"  step="000.0001" min="0" max="100" placeholder="Seguridad en Desplazamiento">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="pcolm" class="form-label">PCO Limite Izquierdo y Derecho</label>
+    <input type="number" class="form-control" name="pcolm" id="pcolm"  step="000.0001" min="0" max="100" placeholder="PCO Limite Izquierdo y Derecho">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="laperfue" class="form-label">Linea Apertura de Fuego</label>
+    <input type="number" class="form-control" name="laperfue" id="laperfue"  step="000.0001" min="0" max="100" placeholder="Linea Apertura de Fuego">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="sectiro" class="form-label">Sectores de Tiro</label>
+    <input type="number" class="form-control" name="sectiro" id="sectiro"  step="000.0001" min="0" max="100" placeholder="Sectores de Tiro">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="sectvig" class="form-label">Sectores de Vigilancia</label>
+    <input type="number" class="form-control" name="sectvig" id="sectvig"  step="000.0001" min="0" max="100" placeholder="Sectores de Vigilancia">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="usoarms" class="form-label">Uso de las Armas</label>
+    <input type="number" class="form-control" name="usoarms" id="usoarms"  step="000.0001" min="0" max="100" placeholder="Uso de las Armas">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="detinfor" class="form-label">Detectar e Informar</label>
+    <input type="number" class="form-control" name="detinfor" id="detinfor"  step="000.0001" min="0" max="100" placeholder="Detectar e Informar">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="centequi" class="form-label">Contacto Entre los Equipos</label>
+    <input type="number" class="form-control" name="centequi" id="centequi"  step="000.0001" min="0" max="100" placeholder="Contacto Entre los Equipos">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="observa" class="form-label">Observar</label>
+    <input type="number" class="form-control" name="observa" id="observa"  step="000.0001" min="0" max="100" placeholder="Observar">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="contequipo" class="form-label">Contactos entre los equipos de la Escuadra</label>
+    <input type="number" class="form-control" name="contequipo" id="contequipo"  step="000.0001" min="0" max="100" placeholder="Contactos entre los equipos de la Escuadra">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="Fugmovi" class="form-label">Fuego y Movimiento</label>
+    <input type="number" class="form-control" name="Fugmovi" id="Fugmovi"  step="000.0001" min="0" max="100" placeholder="Fuego y Movimiento">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="adopdisp" class="form-label">Adopción del Dispositivo</label>
+    <input type="number" class="form-control" name="adopdisp" id="adopdisp"  step="000.0001" min="0" max="100" placeholder="Adopción del Dispositivo">
+  </div>
+  </div>
+
+<!-- Final item de la cancha numero 5 -->
+
+<div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+</form>

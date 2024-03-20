@@ -1,0 +1,114 @@
+<form action="" method="post">
+{% csrf_token %}
+
+<!-- INICIO item de la cancha numero 4 -->
+<div class="form-group ">
+    <label for="cuatro">Unidad</label>
+    <select class="form-control" id="cuatro" name="cuatro">
+    {% for uno  in uno %}
+      <option value="{{uno.id}}">{{uno.id}} - {{uno.unidad}} </option>
+       {% endfor %}
+    </select>
+  </div>
+
+   <div class="row from-group">
+    
+  <div class="form-group col-md-4">
+    <label for="rmsjcf" class="form-label">Recepción del Mensaje Sifrado</label>
+    <input type="number" class="form-control" name="rmsjcf" id="rmsjcf"  step="000.0001" min="0" max="100" placeholder="Recepción del Mensaje Sifrado">
+  </div>
+  
+
+  <div class="form-group col-md-4">
+    <label for="smsjero" class="form-label">Seguridad Mensajero</label>
+    <input type="number" class="form-control" name="smsjero" id="smsjero"  step="000.0001" min="0" max="100" placeholder="Seguridad Mensajero">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="smsje" class="form-label">¿Que es un Mensajero?</label>
+    <input type="number" class="form-control" name="smsje" id="smsje"  step="000.0001" min="0" max="100" placeholder="¿Que es un Mensajero?">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="imsjero" class="form-label">Importancia del Mensajero</label>
+    <input type="number" class="form-control" name="imsjero" id="imsjero"  step="000.0001" min="0" max="100" placeholder="Importancia del Mensajero">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="vtamjs" class="form-label">Ventajas/D Mensajero</label>
+    <input type="number" class="form-control" name="vtamjs" id="vtamjs"  step="000.0001" min="0" max="100" placeholder="Ventajas/D Mensajero">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="tpomsj" class="form-label">Tipos de Mensajes</label>
+    <input type="number" class="form-control" name="tpomsj" id="tpomsj"  step="000.0001" min="0" max="100" placeholder="Tipos de Mensajes">
+  </div>
+
+    <div class="form-group col-md-4">
+    <label for="entsalid" class="form-label">Entrada y Salida Del relevo</label>
+    <input type="number" class="form-control" name="entsalid" id="entsalid"  step="000.0001" min="0" max="100" placeholder="Entrada y Salida Del relevo">
+  </div>
+
+
+   <div class="form-group col-md-4">
+    <label for="celibro" class="form-label">Correcta Elaboración del libro</label>
+    <input type="number" class="form-control" name="celibro" id="celibro"  step="000.0001" min="0" max="100" placeholder="Correcta Elaboración del libro">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="clastrans" class="form-label">Clasificacion y Transmición</label>
+    <input type="number" class="form-control" name="clastrans" id="clastrans"  step="000.0001" min="0" max="100" placeholder="Clasificacion y Transmición">
+  </div>
+
+   <div class="form-group col-md-4">
+    <label for="nofiexp" class="form-label">Numero de oficial Expedidor</label>
+    <input type="number" class="form-control" name="nofiexp" id="nofiexp"  step="000.0001" min="0" max="100" placeholder="Numero de oficial Expedidor">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="fcha" class="form-label">Fecha</label>
+    <input type="number" class="form-control" name="fcha" id="fcha"  step="000.0001" min="0" max="100" placeholder="Fecha">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="pra" class="form-label">Para</label>
+    <input type="number" class="form-control" name="pra" id="pra"  step="000.0001" min="0" max="100" placeholder="Para">
+  </div>
+
+   <div class="form-group col-md-4">
+    <label for="dcofic" class="form-label">Designación Oficial Expedidor</label>
+    <input type="number" class="form-control" name="dcofic" id="dcofic"  step="000.0001" min="0" max="100" placeholder="Designación Oficial Expedidor<">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="hra" class="form-label">Hora</label>
+    <input type="number" class="form-control" name="hra" id="hra"  step="000.0001" min="0" max="100" placeholder="Hora">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="fgrado" class="form-label">Firma y Grado</label>
+    <input type="number" class="form-control" name="fgrado" id="fgrado"  step="000.0001" min="0" max="100" placeholder="Firma y Grado">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="pfsica" class="form-label">Protección Fisica</label>
+    <input type="number" class="form-control" name="pfsica" id="pfsica"  step="000.0001" min="0" max="100" placeholder="Protección Fisica">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="trmsje" class="form-label">Trancipción del Mensaje</label>
+    <input type="number" class="form-control" name="trmsje" id="trmsje"  step="000.0001" min="0" max="100" placeholder="Trancipción del Mensaje">
+  </div>
+
+  <div class="form-group col-md-4">
+    <label for="tepleado" class="form-label">Tiempo empleado Estación</label>
+    <input type="number" class="form-control" name="tepleado" id="tepleado"  step="000.0001" min="0" max="100" placeholder="Tiempo empleado Estación">
+  </div>
+  </div>
+
+<!-- Final item de la cancha numero 4 -->
+<div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+</form>

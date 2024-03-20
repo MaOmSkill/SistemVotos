@@ -1,0 +1,18 @@
+<form action=""  enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+
+
+  <div class="form-group">
+    <label for="unidad" class="form-label">Unidad</label>
+    <input type="text" class="form-control" name="unidad" id="unidad"  placeholder="Unidad">
+  </div>
+ 
+
+    <div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+      <button type="submit" class="btn btn-primary">GUARDAR</button>
+  </div>
+  
+</form>
+
+  

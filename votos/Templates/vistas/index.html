@@ -1,0 +1,264 @@
+{% extends 'base.html' %} 
+
+{% block titulo %} Principal {% endblock %} 
+
+{% block seccion %}
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-1">
+      <div class="col-sm-4">
+        <h1 class="m-0">Soldado Comunicador</h1>
+      </div>
+      <div class="col-sm-8">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item">
+            <a
+              href="#"
+              class="btn btn-dark float-left"
+              data-toggle="modal"
+              data-target="#unidad"
+            >
+              <i class="fas fa-plus-square"></i>
+              Evalución
+            </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#vhf">Red VHF</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#criptografia"
+              >Criptografía</a
+            >
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#hf">Red HF</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#mensajero"
+              >Mensajero</a
+            >
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#mtrr">MTRR</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#morse"
+              >Código Morse</a
+            >
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#" data-toggle="modal" data-target="#radioaficionado"
+              >Radioaficionados</a
+            >
+          </li>
+
+          <li class="breadcrumb-item">
+         {% for  uno in resultados %}
+           <a href="{% url 'crear' uno.id %}">crear</a>
+         {% endfor %}
+         
+        
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 
+
+{% block contenido %}
+<div class="card card-dark card-outline">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      <h3 class="card-title m-0">Puntaje y Resultados</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped-columns table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>N°</th>
+            <th>Unidad</th>
+            <th>Red VHF</th>
+            <th>Criptografía</th>
+            <th>Red HF</th>
+            <th>Mensajero</th>
+            <th>MTRR</th>
+            <th>Código Morse</th>
+            <th>RadioAficcionados</th>
+            <th>Punto</th>
+            <th>Total</th>
+            <th>Condición</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for uno in uno %}
+          <tr>
+          <td>{{uno.id}}</td>
+          <td>{{uno.resultados_unidad}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- modales son 7 -->
+<div class="modal fade" id="unidad">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Evalución</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'vistas/formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="vhf">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Estación (Red VHF)</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'vhf/vhf_formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="criptografia">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Estación (Criptografía)</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% include 'criptografia/cripto_formulario.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="hf">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Estación (Red HF)</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'hf/hf_formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="mensajero">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Estación (Mensajero)</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% include 'mensajero/mensaje_formulario.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="mtrr">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">DEMOSTRACIÓN DE MTRR</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'mtrr/mtrr_formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="morse">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Código Internacional Morse</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'morse/codigo_formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="radioaficionado">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Empleo de los equipos de Radioaficionados</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">{% include 'radio/radio_formulario.html' %}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
