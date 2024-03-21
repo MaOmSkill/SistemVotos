@@ -38,8 +38,9 @@ def principal(request):
         else:
             messages.error(request, 'Faltaron campos por rellenar en el Formulario')
    
-    context = {'formularios': formularios, 'resultados':resultados, 'cripto':cripto , 'vhf':vhf, 'hf':hf, 'mensaje':mensaje, 
-               'mtrr':mtrr, 'morse':morse, 'radio':radio, 'total':total, 'condicion':condicion}
+    context = {'formularios': formularios, 'resultados':resultados, 'cripto':cripto , 
+               'vhf':vhf, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 
+               'radio':radio, 'total':total}
     return render(request, 'vistas/index.html', context)
 
 

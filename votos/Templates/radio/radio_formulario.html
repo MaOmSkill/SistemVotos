@@ -3,103 +3,164 @@
 
   <div class="row">
    <div class="form-group col-md-3">
-  <label for="descripc" class="form-label">Descripcion del Equipo</label>
+    <label for="descripc" class="form-label">Descripcion del Equipo</label>
     <input type="number" class="form-control" name="descripc" id="descripc"  step="000.0001" min="0" max="100" placeholder="Descripcion del Equipo">
+  {% for error in formularios.errors.descripc %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="ensablajee" class="form-label">Ensamblaje del Equipo</label>
     <input type="number" class="form-control" name="ensablajee" id="ensablajee"  step="000.0001" min="0" max="100" placeholder="Ensamblaje del Equipo">
+  {% for error in formularios.errors.ensablajee %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
+  
   </div>
 
   <div class="form-group col-md-3">
   <label for="ctecnicas" class="form-label">Caracteristicas Técnicas</label>
     <input type="number" class="form-control" name="ctecnicas" id="ctecnicas"  step="000.0001" min="0" max="100" placeholder="Caracteristicas Técnicas">
+  {% for error in formularios.errors.ctecnicas %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="banfrec" class="form-label">Banda Frecuencia</label>
     <input type="number" class="form-control" name="banfrec" id="banfrec"  step="000.0001" min="0" max="100" placeholder="Banda Frecuencia">
+  {% for error in formularios.errors.banfrec %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="ranfrec" class="form-label">Rango de Frecuencia</label>
     <input type="number" class="form-control" name="ranfrec" id="ranfrec"  step="000.0001" min="0" max="100" placeholder="Rango de Frecuencia">
+  {% for error in formularios.errors.ranfrec %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="tpequip" class="form-label">Tipo de Equipo</label>
     <input type="number" class="form-control" name="tpequip" id="tpequip"  step="000.0001" min="0" max="100" placeholder="Tipo de Equipo">
+  {% for error in formularios.errors.tpequip %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
    <div class="form-group col-md-3">
   <label for="ptsalid" class="form-label">Potencia de Salida</label>
     <input type="number" class="form-control" name="ptsalid" id="ptsalid"  step="000.0001" min="0" max="100" placeholder="Potencia de Salida">
+  {% for error in formularios.errors.ptsalid %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="tpmodul" class="form-label">Tipo de Modulación</label>
     <input type="number" class="form-control" name="tpmodul" id="tpmodul"  step="000.0001" min="0" max="100" placeholder="Tipo de Modulación">
+  {% for error in formularios.errors.tpmodul %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="alcanceq" class="form-label">Alcance del Equipo</label>
     <input type="number" class="form-control" name="alcanceq" id="alcanceq"  step="000.0001" min="0" max="100" placeholder="Alcance del Equipo">
+  {% for error in formularios.errors.alcanceq %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
    <div class="form-group col-md-3">
   <label for="configequ" class="form-label">Configuracion de Equipo</label>
     <input type="number" class="form-control" name="configequ" id="configequ"  step="000.0001" min="0" max="100" placeholder="Configuracion de Equipo">
+  {% for error in formularios.errors.configequ %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="elabexp" class="form-label">Expediente Campaña de Antenas</label>
     <input type="number" class="form-control" name="elabexp" id="elabexp"  step="000.0001" min="0" max="100" placeholder="Expediente Campaña de Antenas">
+  {% for error in formularios.errors.elabexp %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="calcant" class="form-label">Calculo de Antena</label>
     <input type="number" class="form-control" name="calcant" id="calcant"  step="000.0001" min="0" max="100" placeholder="Calculo de Antena">
+  {% for error in formularios.errors.calcant %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="elabcion" class="form-label">Elaboración de un Expediente</label>
     <input type="number" class="form-control" name="elabcion" id="elabcion"  step="000.0001" min="0" max="100" placeholder="Elaboración de un Expediente">
+  {% for error in formularios.errors.elabcion %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="instaena" class="form-label">Instalacion de la Antena</label>
     <input type="number" class="form-control" name="instaena" id="instaena"  step="000.0001" min="0" max="100" placeholder="Instalacion de la Antena">
+  {% for error in formularios.errors.instaena %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="proctel" class="form-label">Procedimiento Radio Telefonico</label>
     <input type="number" class="form-control" name="proctel" id="proctel"  step="000.0001" min="0" max="100" placeholder="Procedimiento Radio Telefonico">
+  {% for error in formularios.errors.proctel %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
    <div class="form-group col-md-3">
   <label for="empleind" class="form-label">Empleo de los Indicativos</label>
     <input type="number" class="form-control" name="empleind" id="empleind"  step="000.0001" min="0" max="100" placeholder="Empleo de los Indicativos">
+  {% for error in formularios.errors.empleind %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="autenradi" class="form-label">Autenticación Radioaficionados</label>
     <input type="number" class="form-control" name="autenradi" id="autenradi"  step="000.0001" min="0" max="100" placeholder="Autenticación Radioaficionados">
+  {% for error in formularios.errors.autenradi %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="empleados" class="form-label">Empleo de los Pre-Arreglados</label>
     <input type="number" class="form-control" name="empleados" id="empleados"  step="000.0001" min="0" max="100" placeholder="Empleo de los Pre-Arreglados">
+  {% for error in formularios.errors.empleados %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="emplefic" class="form-label">Empleo Eficiente de Micro</label>
     <input type="number" class="form-control" name="emplefic" id="emplefic"  step="000.0001" min="0" max="100" placeholder="Empleo Eficiente de Micro">
+  {% for error in formularios.errors.emplefic %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group col-md-3">
   <label for="tmplado" class="form-label">Tiempo Empleado en la Estación</label>
     <input type="number" class="form-control" name="tmplado" id="tmplado"  step="000.0001" min="0" max="100" placeholder="Tiempo Empleado en la Estación">
+  {% for error in formularios.errors.tmplado %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   </div>

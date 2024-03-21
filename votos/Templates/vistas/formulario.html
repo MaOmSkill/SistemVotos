@@ -4,71 +4,103 @@
   <div class="form-group">
     <label for="nombre" class="form-label">Unidad</label>
     <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Unidad">
+    {% for error in formularios.errors.nombre %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="vhf">RED_VHF</label>
     <select class="form-control" id="vhf" name="vhf">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in vhf %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} ------ {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+
+    {% for error in formularios.errors.vhf %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="cripto">CRIPTOGRAFIA</label>
     <select class="form-control" id="cripto" name="cripto">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in cripto %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} ------- {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+    {% for error in formularios.errors.cripto %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="hf">RED_HF</label>
     <select class="form-control" id="hf" name="hf">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in hf %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} ------- {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+     {% for error in formularios.errors.hf %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="mensaje">MENSAJERO</label>
     <select class="form-control" id="mensaje" name="mensaje">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in mensaje %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+    {% for error in formularios.errors.mensaje %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="mtrr">MTRR</label>
     <select class="form-control" id="mtrr" name="mtrr">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in mtrr %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+    {% for error in formularios.errors.mtrr %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
 
   <div class="form-group ">
     <label for="morse">CODIGO MORSE</label>
     <select class="form-control" id="morse" name="morse">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in morse %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+    {% for error in formularios.errors.morse %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
+    
   </div>
 
   <div class="form-group ">
     <label for="radio">RADIOAFICIONADOS</label>
     <select class="form-control" id="radio" name="radio">
+    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
     {% for uno  in radio %}
-      <option value="{{uno.id}}">{{uno.id}} - {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">{{uno.id}} ------ {{uno.sumatoria}} </option>
        {% endfor %}
     </select>
+    {% for error in formularios.errors.radio %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
   </div>
-
  
     <div class="modal-footer justify-content-between">
       <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
