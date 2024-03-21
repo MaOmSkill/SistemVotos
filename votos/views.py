@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.db.models import Count
 from django.contrib import messages
-from votos.utilidades import condicion 
+from django.db.models import F 
 from .models import Resultados, Red_VHF, Criptografia, Red_HF, Mensajero , Mtrr, Codigo_Morse, Radioaficionados
 from .forms import ResultadosForm, Red_VhForm, CriptografiaForm, Red_HForm, MensajeroForm, MtrrForm, Codigo_MorseForm, RadioaficionadosForm
 
 
 def principal(request):
-    resultados = Resultados.objects.all().order_by('total')
+    resultados = Resultados.objects.all().order_by(F('resta').desc())
     cripto = Criptografia.objects.all()
     vhf = Red_VHF.objects.all()
     hf = Red_HF.objects.all()
@@ -16,7 +16,7 @@ def principal(request):
     morse = Codigo_Morse.objects.all()
     radio = Radioaficionados.objects.all()
     
-    total = Resultados.objects.values('total').annotate(conteo=Count('total')).order_by('total')
+   
 
     formularios = {
         'resultados': ResultadosForm(request.POST or None),
@@ -40,7 +40,7 @@ def principal(request):
    
     context = {'formularios': formularios, 'resultados':resultados, 'cripto':cripto , 
                'vhf':vhf, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 
-               'radio':radio, 'total':total}
+               'radio':radio}
     return render(request, 'vistas/index.html', context)
 
 

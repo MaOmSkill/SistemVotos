@@ -101,6 +101,22 @@
       <span class="error">{{ error }}</span>
       {% endfor %}
   </div>
+
+  <div class="form-group">
+    <label for="pruebaC" class="form-label">Prueba Conocimiento</label>
+    <input type="number" class="form-control" name="pruebaC" id="pruebaC"  placeholder="Prueba Conocimiento">
+    {% for error in formularios.errors.pruebaC %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
+  </div>
+
+  <div class="form-group">
+    <label for="demerito" class="form-label">Demerito</label>
+    <input type="number" class="form-control" name="demerito" id="demerito"  placeholder="Prueba Conocimiento">
+    {% for error in formularios.errors.pruebaC %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
+  </div>
  
     <div class="modal-footer justify-content-between">
       <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>

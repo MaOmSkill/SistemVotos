@@ -4,7 +4,7 @@ from .models import Resultados, Red_VHF, Criptografia, Red_HF, Mensajero, Mtrr, 
 class ResultadosForm(forms.ModelForm):
     class Meta:
         model = Resultados
-        fields = ['nombre', 'vhf', 'cripto', 'hf' , 'mensaje' , 'mtrr' , 'morse' , 'radio']
+        fields = ['nombre', 'vhf', 'cripto', 'hf' , 'mensaje' , 'mtrr' , 'morse' , 'radio', 'pruebaC', 'demerito']
         
         
 class Red_VhForm(forms.ModelForm):
