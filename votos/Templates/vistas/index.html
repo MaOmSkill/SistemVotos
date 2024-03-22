@@ -2,6 +2,66 @@
 
 {% block titulo %} Principal {% endblock %} 
 
+{% block css %}
+  <style>
+
+  .btn-success{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+   .btn-info{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn-primary{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn-warning{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn-danger{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+   .btn-dark{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  </style>
+{% endblock  %}
+  
+
 {% block seccion %}
 <div class="content-header">
   <div class="container-fluid">
@@ -74,7 +134,7 @@
         <tbody>
         {% for uno in resultados %}
           <tr>
-          <td class="text-center">{{uno.id}}</td>
+          <td class="text-center">{{ forloop.counter }}</td>
           <td class="text-center">{{uno.nombre}}</td>
           <td class="text-center">{{uno.vhf.sumatoria}}%</td>
           <td class="text-center">{{uno.cripto.sumatoria}}% </td>
@@ -88,27 +148,28 @@
           <td class="text-center">{{uno.resta}} % </td>
           <td class="text-center">
           {% if uno.total >= 96 %}
-              
-              Excelente
-              
+
+          <a href="#" class="btn btn-success btn-block"><img src="/static/img/corona.png" alt="corona" width="30px" height="auto">EXCELENTE</a>
+      
           {% elif uno.total >= 90 %}
-          
-              Muy Bueno
+
+           <a href="#" class="btn btn-info btn-block">MUY BUENO</a>
             
           {% elif uno.total >= 80 %}
-              Bueno
+
+          <a href="#" class="btn btn-primary btn-block">BUENO</a>
                   
           {% elif uno.total >= 70 %}
 
-                Suficiente
-                
+          <a href="#" class="btn btn-warnig btn-block">SUFICIENTE</a>
+
           {% elif uno.total >= 1 %}
 
-                Deficiente
-         
+           <a href="#" class="btn btn-danger btn-block">DEFICIENTE</a>
+              
             {% else %}
 
-                No Cumple
+               <a href="#" class="btn btn-dark btn-block">NO CUMPLE</a>
 
             {% endif %}
             </td>

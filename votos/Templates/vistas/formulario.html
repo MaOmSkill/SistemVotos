@@ -11,10 +11,10 @@
 
   <div class="form-group ">
     <label for="vhf">RED_VHF</label>
-    <select class="form-control" id="vhf" name="vhf">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  style="width: 100%;" id="vhf" name="vhf" aria-label="Select  example">
+    <option selected="selected"> SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE RED_VHF </option>
     {% for uno  in vhf %}
-      <option value="{{uno.id}}">{{uno.id}} ------ {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
 
@@ -25,10 +25,10 @@
 
   <div class="form-group ">
     <label for="cripto">CRIPTOGRAFIA</label>
-    <select class="form-control" id="cripto" name="cripto">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="cripto" name="cripto">
+    <option value=""> SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE CRIPTOGRAFIA </option>
     {% for uno  in cripto %}
-      <option value="{{uno.id}}">{{uno.id}} ------- {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
     {% for error in formularios.errors.cripto %}
@@ -38,10 +38,10 @@
 
   <div class="form-group ">
     <label for="hf">RED_HF</label>
-    <select class="form-control" id="hf" name="hf">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="hf" name="hf">
+    <option value=""> SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE RED_HF</option>
     {% for uno  in hf %}
-      <option value="{{uno.id}}">{{uno.id}} ------- {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
      {% for error in formularios.errors.hf %}
@@ -51,10 +51,10 @@
 
   <div class="form-group ">
     <label for="mensaje">MENSAJERO</label>
-    <select class="form-control" id="mensaje" name="mensaje">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="mensaje" name="mensaje">
+    <option value="">SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE MENSAJERO</option>
     {% for uno  in mensaje %}
-      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
     {% for error in formularios.errors.mensaje %}
@@ -64,10 +64,10 @@
 
   <div class="form-group ">
     <label for="mtrr">MTRR</label>
-    <select class="form-control" id="mtrr" name="mtrr">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="mtrr" name="mtrr">
+    <option value="">SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE MTRR </option>
     {% for uno  in mtrr %}
-      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
     {% for error in formularios.errors.mtrr %}
@@ -77,10 +77,10 @@
 
   <div class="form-group ">
     <label for="morse">CODIGO MORSE</label>
-    <select class="form-control" id="morse" name="morse">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="morse" name="morse">
+    <option value="">SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE CODIGO MORSE</option>
     {% for uno  in morse %}
-      <option value="{{uno.id}}">{{uno.id}} -------- {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}">EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
     {% for error in formularios.errors.morse %}
@@ -91,10 +91,10 @@
 
   <div class="form-group ">
     <label for="radio">RADIOAFICIONADOS</label>
-    <select class="form-control" id="radio" name="radio">
-    <option value="">------SELECCIONE CANTIDAD DEL EQUIPO ------- </option>
+    <select class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger"  class='selectpicker' style="width: 100%;" id="radio" name="radio">
+    <option value="">SELECCIONE LA CANTIDAD QUE GENERO EL EQUIPO DE LA CANCHA DE RADIOAFICIONADOS </option>
     {% for uno  in radio %}
-      <option value="{{uno.id}}">{{uno.id}} ------ {{uno.sumatoria}} </option>
+      <option value="{{uno.id}}"> EQUIPO - - - - {{uno.id}} - - - - - {{uno.sumatoria}}</option>
        {% endfor %}
     </select>
     {% for error in formularios.errors.radio %}
