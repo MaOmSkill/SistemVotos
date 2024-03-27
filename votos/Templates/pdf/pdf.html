@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista General del Soldado Comunicador</title>
+  <style>
+    table {
+      overflow-x: auto;
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 50%;
+    }
+
+    table th,
+    td {
+      padding: 5px;
+      max-width: 400px;
+      word-wrap: break-word;
+      white-space: inherit;
+    }
+
+    table p {
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      margin-bottom: 0px;
+      margin-top: 0px;
+    }
+
+    .bodertabla {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="5" style="padding: 10px; text-align:center;"><img src="{{img_uno}}" alt="icon" width="60"
+            height="80"></td>
+        <td colspan="15">
+          <p style="margin-top: 0px;">REPÚPLICA BOLIVARIANA DE VENEZUELA</p>
+          <p style="margin-top: 0px;">MINISTERIO DEL PODER POPULAR PARA LA DEFENSA</p>
+          <p style="margin-top: 0px;">EJÉRCITO BOLIVARIANO</p>
+          <p style="margin-top: 0px;">DIRECCIÓN DE TECNOLOGIA DE INFORMACIÓN Y LAS COMUNICACIONES</p>
+        </td>
+        <td colspan="5" style="padding: 20px;"><img src="{{img_dos}}" width="70"></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td colspan="15" style="text-align: left;"></td>
+        <td colspan="5" style="text-align: right;">{{fecha}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="15" style="padding: 10px;">
+           PARTICIPANTES EN LA COMPETENCIA DEL SOLDADO COMUNICADOR
+        </th>
+      </tr>
+    </thead>
+  </table>
+
+  <table class="bodertabla">
+    <thead>
+      <tr>
+        <th colspan="1">N°</th>
+        <th colspan="8">COMPETIDOR</th>
+        <th colspan="2">PUNTAJE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for resultados in resultados %}
+      <tr>
+        <td colspan="1">{{forloop.counter}}</td>
+        <td colspan="8">{{resultados.nombre}}</td>
+        <td colspan="2">{{resultados.resta}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

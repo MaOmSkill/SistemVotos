@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'votos',
+    'xhtml2pdf'
     
 ]
 
@@ -78,13 +79,16 @@ WSGI_APPLICATION = 'SistemVotos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'votos',
-        'USER': 'postgres',
-        'PASSWORD': '12345',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432'
-    }
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES'",
+        },
+    },
 }
 
 
@@ -110,14 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
-
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

@@ -4,6 +4,18 @@
 
 {% block css %}
   <style>
+   .table-hover-blue thead th:hover {
+      background-color: #007bff;
+    }
+
+    .btn-secondary{
+    font-family: 'FOSTER', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .btn-success{
     font-family: 'FOSTER', sans-serif;
@@ -67,7 +79,7 @@
   <div class="container-fluid">
     <div class="row mb-1">
       <div class="col-sm-4">
-        <h1 class="m-0">El Comunicador</h1>
+        <h1 class="m-0"> <img src="/static/img/soldado.png" alt="" width="100px">SOLDADO COMUNICADOR</h1>
       </div>
       <div class="col-sm-8">
         <ol class="breadcrumb float-sm-right">
@@ -108,7 +120,8 @@
 <div class="card card-dark card-outline">
   <div class="card-header">
     <div class="d-flex justify-content-between">
-      <h3 class="card-title m-0">Puntaje y Resultados</h3>
+      <h3 class="card-title m-0">Puntaje y Resultados <a href="{% url 'pdf' %}">Imprimir PDF</a></h3>
+      
     </div>
   </div>
   <div class="card-body">
@@ -117,18 +130,18 @@
         <thead class="table-dark">
           <tr>
             <th class="text-center">N°</th>
-            <th class="text-center">Unidad</th>
-            <th class="text-center">Red VHF</th>
-            <th class="text-center">Criptografía</th>
-            <th class="text-center">Red HF</th>
-            <th class="text-center">Mensajero</th>
+            <th class="text-center">EQUIPO</th>
+            <th class="text-center">RED VHF</th>
+            <th class="text-center">CRIPTOGRAFÍA</th>
+            <th class="text-center">RED HF</th>
+            <th class="text-center">MENSAJERO</th>
             <th class="text-center">MTRR</th>
-            <th class="text-center">Código Morse</th>
+            <th class="text-center">CÓDIGO MORSE</th>
             <th class="text-center">R-AF</th>
-            <th class="text-center">Prueba-C</th>
-            <th class="text-center">Demerito</th>
-            <th class="text-center">Puntaje</th>
-            <th class="text-center">Condición</th>
+            <th class="text-center">PRUEBA-C</th>
+            <th class="text-center">DEMERITO</th>
+            <th class="text-center">PUNTAJE</th>
+            <th class="text-center">CONDICIÓN</th>
           </tr>
         </thead>
         <tbody>
@@ -145,33 +158,23 @@
           <td class="text-center">{{uno.radio.sumatoria}}%</td>
           <td class="text-center">{{uno.pruebaC}}</td>
           <td class="text-center">{{uno.demerito}}</td>
-          <td class="text-center">{{uno.resta}} % </td>
+          <td class="text-center" id="porcentaje">{{uno.resta}}</td>
           <td class="text-center">
-          {% if uno.total >= 96 %}
-
-          <a href="#" class="btn btn-success btn-block"><img src="/static/img/corona.png" alt="corona" width="30px" height="auto">EXCELENTE</a>
-      
-          {% elif uno.total >= 90 %}
-
-           <a href="#" class="btn btn-info btn-block">MUY BUENO</a>
-            
-          {% elif uno.total >= 80 %}
-
-          <a href="#" class="btn btn-primary btn-block">BUENO</a>
-                  
-          {% elif uno.total >= 70 %}
-
-          <a href="#" class="btn btn-warnig btn-block">SUFICIENTE</a>
-
-          {% elif uno.total >= 1 %}
-
-           <a href="#" class="btn btn-danger btn-block">DEFICIENTE</a>
-              
-            {% else %}
-
-               <a href="#" class="btn btn-dark btn-block">NO CUMPLE</a>
-
-            {% endif %}
+              {% if uno.resta >= 99.5 %}
+                  <a href="#" class="btn btn-secondary btn-block campeon" data-id="{{ uno.id }}"><img src="/static/img/trofeo.png" class="mr-2" alt="trofeo" width="40px" height="auto"> CAMPEÓN</a>
+              {% elif uno.resta >= 96  and uno.resta < 98%}
+                  <a href="#" class="btn btn-success btn-block excelente" data-id="{{ uno.id }}"><img src="/static/img/medalla.png" alt="trofeo" width="35px" height="auto"> EXCELENTE</a>
+              {% elif uno.resta >= 90 and uno.resta < 96 %}
+                  <a href="#" class="btn btn-info btn-block muybueno" data-id="{{ uno.id }}"><img src="/static/img/muybueno.png" alt="corona" width="30px" height="auto"> MUY BUENO</a>
+              {% elif uno.resta >= 80 and uno.resta < 90 %}
+                  <a href="#" class="btn btn-primary btn-block bueno" data-id="{{ uno.id }}"><img src="/static/img/bueno.png" class="mr-3" alt="bueno" width="30px" height="auto">BUENO</a>
+              {% elif uno.resta >= 70 and uno.resta < 80 %}
+                  <a href="#" class="btn btn-warning btn-block suficiente" data-id="{{ uno.id }}"><img src="/static/img/suficiente.png" alt="suficiente" width="30px" height="auto"> SUFICIENTE</a>
+              {% elif uno.resta >= 1 and uno.resta < 70 %}
+                  <a href="#" class="btn btn-danger btn-block deficiente" data-id="{{ uno.id }}"><img src="/static/img/deficiente.png" class="mb-2" alt="deficiente" width="30px" height="auto"> DEFICIENTE</a>
+              {% else %}
+                  <a href="#" class="btn btn-dark btn-block">NO CUMPLE</a>
+              {% endif %}
             </td>
           </tr>
         {% endfor %}
@@ -181,7 +184,19 @@
   </div>
 </div>
 
-<!-- modales son 7 -->
+<!-- modales de los calificaciones -->
+<div class="modal fade" id="trofeo">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body">
+            
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+<!-- modales son 7 cancha -->
 
 <div class="modal fade" id="vhf">
   <div class="modal-dialog modal-xl">
@@ -306,5 +321,120 @@
     </div>
   </div>
 </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+$(document).ready(function() {
+    var intervalId = setInterval(function() {
+        var resta = parseFloat($('#porcentaje').text().replace(' %', ''));
+        if (resta >= 99) {
+            clearInterval(intervalId);
+            $('.campeon').click();
+        }
+    }, 1000); // Verifica cada 1000 ms (1 segundo)
+
+    $('.campeon').click(function() {
+        let id = $(this).data('id');
+        console.log(id);
+        $.ajax({
+            url: '/campeon/' + id,
+            type: 'GET',
+            success: function(response) {
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $('.excelente').click(function() {
+       let id = $(this).data('id');
+       console.log(id);
+        $.ajax({
+            url: '/mostrar/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+
+$(document).ready(function() {
+    $('.muybueno').click(function() {
+       let id = $(this).data('id');
+       console.log(id);
+        $.ajax({
+            url: '/muybueno/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+
+
+$(document).ready(function() {
+    $('.bueno').click(function() {
+       let id = $(this).data('id');
+       console.log(id);
+        $.ajax({
+            url: '/bueno/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $('.suficiente').click(function() {
+       let id = $(this).data('id');
+       console.log(id);
+        $.ajax({
+            url: '/suficiente/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $('.deficiente').click(function() {
+       let id = $(this).data('id');
+       console.log(id);
+        $.ajax({
+            url: '/deficiente/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                $('#trofeo .modal-body').html(response);
+                $('#trofeo').modal('show');
+            }
+        });
+    });
+});
+
+</script>
+
 
 {% endblock %}

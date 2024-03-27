@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponse
+from django.template.loader import get_template
+from django.template.loader import render_to_string
 from django.db.models import Count
+from datetime import datetime
 from django.contrib import messages
+from io import BytesIO
+from xhtml2pdf import pisa
 from django.db.models import F 
 from .models import Resultados, Red_VHF, Criptografia, Red_HF, Mensajero , Mtrr, Codigo_Morse, Radioaficionados
 from .forms import ResultadosForm, Red_VhForm, CriptografiaForm, Red_HForm, MensajeroForm, MtrrForm, Codigo_MorseForm, RadioaficionadosForm
@@ -44,7 +50,95 @@ def principal(request):
     return render(request, 'vistas/index.html', context)
 
 
+def campeon(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/campeon.html', context)
 
+
+def mostrar(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/crear.html', context)
     
-    
+def muybueno(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/muybueno.html', context)  
+
+def bueno(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/bueno.html', context)  
+
+def suficiente(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/suficiente.html', context)
+
+def deficiente(request, id):
+    titulo = Resultados.objects.filter(id=id)
+    vhf = Red_VHF.objects.filter(id=id)
+    cripto = Criptografia.objects.filter(id=id)
+    hf = Red_HF.objects.filter(id=id)
+    mensaje = Mensajero.objects.filter(id=id)
+    mtrr = Mtrr.objects.filter(id=id)
+    morse = Codigo_Morse.objects.filter(id=id)
+    radio = Radioaficionados.objects.filter(id=id)
+    context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
+    return render(request, 'vistas/deficiente.html', context) 
+
+def pdf(request):
+    try:
+        resultados = Resultados.objects.all()
+        fecha = datetime.now().date()
+        template = 'pdf/pdf.html'
+        context = {'resultados':resultados, 'fecha':fecha}
+        template = get_template(template)
+        html = template.render(context)
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="reporte.pdf"'
+        pisa_status = pisa.CreatePDF(html, dest=response)
+        if pisa_status.err:
+            messages.error(request, 'Error al generar el PDF')
+            return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return response
+    except Resultados.DoesNotExist:
+        messages.error(request, 'PDF de Resultados no Encontrada')
+        return redirect('servicio')
     
