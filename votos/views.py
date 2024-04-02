@@ -5,8 +5,12 @@ from django.template.loader import render_to_string
 from django.db.models import Count
 from datetime import datetime
 from django.contrib import messages
-from io import BytesIO
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
 from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
 from django.db.models import F 
 from .models import Resultados, Red_VHF, Criptografia, Red_HF, Mensajero , Mtrr, Codigo_Morse, Radioaficionados
 from .forms import ResultadosForm, Red_VhForm, CriptografiaForm, Red_HForm, MensajeroForm, MtrrForm, Codigo_MorseForm, RadioaficionadosForm
@@ -123,12 +127,16 @@ def deficiente(request, id):
     context = {'vhf':vhf, 'cripto':cripto, 'hf':hf, 'mensaje':mensaje, 'mtrr':mtrr, 'morse':morse, 'radio':radio, 'titulo':titulo}
     return render(request, 'vistas/deficiente.html', context) 
 
+
+
 def pdf(request):
     try:
         resultados = Resultados.objects.all()
         fecha = datetime.now().date()
+        img_uno = settings.STATIC_ROOT + '/imagenes/img_uno.png'
+        img_dos = settings.STATIC_ROOT + '/imagenes/img_dos.png'
         template = 'pdf/pdf.html'
-        context = {'resultados':resultados, 'fecha':fecha}
+        context = {'resultados':resultados, 'fecha':fecha , 'img_uno':img_uno, 'img_dos':img_dos}
         template = get_template(template)
         html = template.render(context)
         response = HttpResponse(content_type='application/pdf')
